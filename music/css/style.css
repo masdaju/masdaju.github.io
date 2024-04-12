@@ -576,7 +576,9 @@ span#change {
             outline: none;
             border-color: #4CAF50;
         }
-
+		#playlistId::placeholder {
+			color: black; /* 设置占位符文本的颜色为红色 */
+		}
         button {
             /* padding: 10px 20px; */
             border: 1px solid transparent;
