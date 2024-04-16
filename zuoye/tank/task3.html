@@ -6,7 +6,7 @@
 		<style type="text/css">
 			input{font-size:26px;margin-top: 20px;}
 			body{background-image: url(images/grassland.png);}
-			#mytank{position: absolute;left:10px;top:100px}
+			#mytank{position: absolute;left:0px;top:0px}
 		</style>
 	</head>
 	<body>		
@@ -20,7 +20,7 @@
 				            newX = Number(newX.substr(0, newX.length-2));//截取top值，去掉px
 							            newY = Number(newY.substr(0, newY.length-2));//截取top值，去掉px
 				console.log(newX)
-
+				console.log(newY)
 				switch(event.key) {
 					case "w":
 						newY -= 10;
