@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>让坦克开起来</title>
+		<style type="text/css">
+			input{font-size:26px;margin-top: 20px;}
+			body{background-image: url(images/grassland.png);}
+			#mytank{position: absolute;left:10px;top:100px}
+		</style>
+	</head>
+	<body>		
+		<img id="mytank" src="images/right.png"/>
+		<script>
+			document.addEventListener("keydown", function(event) {
+				const tank = document.getElementById("mytank");
+				let currentImage = tank.src.substring(tank.src.lastIndexOf('/') + 1);
+				let newX = tank.style.left;
+				let newY = tank.style.top;
+				            newX = Number(newX.substr(0, newX.length-2));//截取top值，去掉px
+							            newY = Number(newY.substr(0, newY.length-2));//截取top值，去掉px
+				console.log(newX)
+
+				switch(event.key) {
+					case "w":
+						newY -= 10;
+						if(newY < 0) newY = 0;
+						currentImage = "up.png";
+						break;
+					case "s":
+						newY += 10;
+						if(newY > window.innerHeight - 50) newY = window.innerHeight - 50;
+						currentImage = "down.png";
+						break;
+					case "a":
+						newX -= 10;
+						if(newX < 0) newX = 0;
+						currentImage = "left.png";
+						break;
+					case "d":
+						newX += 10;
+						if(newX > window.innerWidth - 50) newX = window.innerWidth - 50;
+						currentImage = "right.png";
+						break;
+					default:
+						return;
+				}
+	
+				
+				tank.style.left = newX + "px";
+				tank.style.top = newY + "px";
+				tank.src = "images/" + currentImage;
+			});
+		</script>
+	</body>
+</html>
